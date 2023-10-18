@@ -3,7 +3,7 @@
 @section('content')
 
    <!--Registration form-->
-
+<div class="main_con">
     <div class="container">
         <div class="main">
             <div class="col-md-4"></div>
@@ -12,8 +12,8 @@
                     <div class="card-body">
                         <h1>Register</h1>
 
-                        @if (Session::has('success'))
-                            <p class="text-info">{{ Session::get('success') }}</p>
+                        @if (Session::has('error'))
+                            <p class="text-danger">{{ Session::get('error') }}</p>
                         @endif
 
                         <form action="{{ route('register.data') }}" method="post" id="form_id">
@@ -67,8 +67,10 @@
                             </div>
 
 
-                            <div class="col-4 text-right mt-2">
-                                <input type="submit" class="btn btn-primary" value=" Register " />
+                            <div class="col-4 text-right mt-2 d-flex">
+                                <input type="submit" class="btn btn-primary mr-3" value=" Register " />
+                                <span class="m-1"></span>
+                                <a href="{{ route('login') }}" class="btn btn-info">Login</a>
                             </div>
                             <!--End Input fields of form-->
                         </form>
@@ -79,6 +81,7 @@
         </div>
 
     </div>
+</div>
     <!--End Registration form-->
 
 @endsection
